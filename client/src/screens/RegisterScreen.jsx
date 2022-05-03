@@ -26,18 +26,45 @@ const RegisterScreen = () => {
     <div className="container">
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
+        {/* <div className="mb-3">
+          <label className="form-label" htmlFor="username">
+            Username
+          </label>
+          <input
+            type="text"
+            name="username"
+            className="form-control"
+            value={data.username}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="mb-3">
+          <label className="form-label" htmlFor="password">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            className="form-control"
+            value={data.password}
+            onChange={handleChange}
+          />
+        </div> */}
+
         <Input
+          type="text"
           id="username"
-          value={data.password}
-          handleChange={handleChange}
-          label="Password"
-        />
-        <Input
-          id="password"
-          type="password"
+          label="Username"
           value={data.username}
           handleChange={handleChange}
-          label="Username"
+        />
+        <Input
+          type="password"
+          id="password"
+          label="Password"
+          value={data.password}
+          handleChange={handleChange}
         />
 
         <button className="btn btn-primary" type="submit">
