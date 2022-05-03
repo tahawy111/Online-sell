@@ -20,5 +20,8 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.genAuthToken = function () {
   return jwt.sign(this.toJSON(), "ThePassword");
 };
+userSchema.methods.checkPassword = function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
 module.exports = User = mongoose.model("User", userSchema);

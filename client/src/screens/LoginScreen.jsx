@@ -3,13 +3,13 @@ import usersApi from "../api/usersApi";
 import Input from "../components/Input";
 import { toast } from "react-toastify";
 import authApi from "../api/auth";
-const RegisterScreen = () => {
+const LoginScreen = () => {
   const [data, setData] = useState({ username: "", password: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data: token } = await usersApi.createUser(data);
+      const { data: token } = await usersApi.loginUser(data);
       toast.success("Your account has been registered");
       authApi.setToken(token);
       window.location = "/";
@@ -27,7 +27,7 @@ const RegisterScreen = () => {
     setData({ ...data, [target.name]: target.value });
   return (
     <div className="container">
-      <h1>Register</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -52,4 +52,4 @@ const RegisterScreen = () => {
   );
 };
 
-export default RegisterScreen;
+export default LoginScreen;
